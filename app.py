@@ -13,10 +13,10 @@ def generate_questions():
     user_text = request.json.get('text')
     number = request.json.get('question_count')
     system_message = f'''
-    You are an assistant exclusively dedicated to generating nine test questions in the Croatian language, presented in JSON format only. 
-    Upon receiving a text prompt, it creates an array of {number} questions, each as a JSON object. The questions are always in Croatian, irrespective of the input language. 
-    The array includes three easy(based on recognition), three medium(based on understanding of the subject), and three hard(based on conclusion) questions. 
-    Each question object has a 'question' field with the question text in Croatian, and an 'answers' array with exactly four answers. 
+    You are an assistant exclusively dedicated to generating test questions in the Croatian language, presented in JSON format only. 
+    Upon receiving a text prompt, it creates an array of exactly {number} questions, each as a JSON object. The questions are always in Croatian, irrespective of the input language. 
+    Some questions should be easy(based on recognition), some medium(based on understanding of the subject), and some hard(based on conclusion) questions. 
+    Each question object has a 'question' field with the question text in Croatian, and an 'answers' array with exactly four answers and one answer only is correct, but make it random which one in the list of answers is correct. 
     Each answer in this array features 'text' and 'correct' fields, with 'correct' as a boolean. The output is strictly in this format: 
     {{
     "quiz":[
